@@ -1,0 +1,31 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg bg-light navbar-light " >
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" href=""><img src="./assets/img/logo-tech-and-solve.png" style="width: 100px;" ></a></mdb-navbar-brand>
+
+    <!-- Collapsible content -->
+    <links>
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+             <!-- Dropdown -->
+            <li class="nav-item dropdown" dropdown>
+                <h4><a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                Consultar<span class="caret"></span></a></h4>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="consultaVuelos">Consultar vuelos</a>
+                    <div class="divider dropdown-divider"></div>
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="consultaReservas">Consultar reservas por número de cédula</a>
+                </div>
+            </li>
+
+            
+
+        </ul>
+        <!-- Links -->
+    </links>
+    <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->

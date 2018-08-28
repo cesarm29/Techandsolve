@@ -1,0 +1,91 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg bg-light navbar-light " >
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" href=""><img src="./assets/img/logo-tech-and-solve.png" style="width: 100px;" ></a></mdb-navbar-brand>
+
+    <!-- Collapsible content -->
+    <links>
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+             <!-- Dropdown -->
+            <li class="nav-item dropdown" dropdown>
+                <h4><a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                Consultar<span class="caret"></span></a></h4>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="consultaVuelos">Consultar vuelos</a>
+                    <div class="divider dropdown-divider"></div>
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="consultaReservas">Consultar reservas por número de cédula</a>
+                </div>
+            </li>
+
+            
+
+        </ul>
+        <!-- Links -->
+    </links>
+    <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->
+
+<div class="container">
+<div class="row">
+<div class="col m1"></div>
+<div class="col m4">	
+<form (ngSubmit)="sendReservas()" #f="ngForm" novalidate >
+  <div class="form-group">
+  	<br>
+  	<h4 style="text-align: center"><span>Reserva de Vuelos</span></h4>
+  	<br>
+    <div class="alert alert-danger alert-dismissable fuente-project" *ngIf="msg">
+       <a class="close" (click)="closeAlert()">
+          &times;
+       </a>
+     <h6>{{msg}}</h6>
+    </div>
+    <div class="alert alert-success alert-dismissable fuente-project" *ngIf="msgex">
+       <a class="close" (click)="closeAlertEx()">
+          &times;
+       </a>
+     <h6>{{msgex}}</h6>
+    </div>
+    <h4><label for="nombres" class="bmd-label-floating">Nombres</label></h4>
+    <input type="text" class="form-control" id="nombre" name="nombres" [(ngModel)]="model.nombres" #username="ngModel" >
+  </div>
+
+  <div class="form-group">
+    <h4><label for="apellidos" class="bmd-label-floating">Apellidos</label></h4>
+    <input type="text" class="form-control" id="apellidos" name="apellidos" [(ngModel)]="model.apellidos" #username="ngModel" >
+  </div>
+
+  <div class="form-group">
+    <h4><label for="cedula" class="bmd-label-floating">Cedula</label></h4>
+    <input type="number" class="form-control"  id="cedula" name="cedula" [(ngModel)]="model.cedula" #username="ngModel" >
+  </div>
+
+  <div class="form-group">
+    <h4><label for="email" class="bmd-label-floating">Email</label></h4>
+    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="model.email" #username="ngModel" >
+  </div>
+
+  <div class="form-group">
+    <h4><label for="telefono" class="bmd-label-floating">Telefono</label></h4>
+    <input type="number" class="form-control"  id="telefono" name="telefono" [(ngModel)]="model.telefono" #username="ngModel" >
+  </div>
+
+
+  <div class="form-group">
+    <h4><label for="fechanacimineto" class="bmd-label-floating">Fecha Nacimiento</label></h4>
+    <input type="date" class="form-control"  id="fechanacimiento" name="fechanacimiento" [(ngModel)]="model.fechanacimiento" #username="ngModel" >
+  </div>
+
+
+  <button class="btn btn-default" (click)="close()" >Cancel</button>
+  <button type="submit" class="btn btn-primary btn-raised">Reservar</button>
+</form>
+</div>
+<div class="col m1"></div>
+</div>
+</div>

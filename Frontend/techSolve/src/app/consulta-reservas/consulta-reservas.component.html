@@ -1,0 +1,89 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg bg-light navbar-light " >
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" href=""><img src="./assets/img/logo-tech-and-solve.png" style="width: 100px;" ></a></mdb-navbar-brand>
+
+    <!-- Collapsible content -->
+    <links>
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+             <!-- Dropdown -->
+            <li class="nav-item dropdown" dropdown>
+                <h4><a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                Consultar<span class="caret"></span></a></h4>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="consultaVuelos">Consultar vuelos</a>
+                    <div class="divider dropdown-divider"></div>
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="consultaReservas">Consultar reservas por número de cédula</a>
+                </div>
+            </li>
+
+            
+
+        </ul>
+        <!-- Links -->
+    </links>
+    <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->
+
+<div class="container">
+<div class="row">
+<div class="col m1"></div>
+<div class="col m4">	
+<form (ngSubmit)="onGetReservas()" #f="ngForm" novalidate>
+  <div class="form-group">
+  	<br>
+  	<h4 style="text-align: center"><span>Consulta Reservas</span></h4>
+  	<br>
+    <div class="alert alert-danger alert-dismissable fuente-project" *ngIf="msg">
+       <a class="close" (click)="closeAlert()">
+          &times;
+       </a>
+     <h6>{{msg}}</h6>
+    </div>
+    <h4><label for="cedula" class="bmd-label-floating">Cédula</label></h4>
+    <input type="number" class="form-control" id="cedula" name="cedula" [(ngModel)]="model.cedula" #username="ngModel" required >
+  </div>
+  <button class="btn btn-default" (click)="close()" >Cancel</button>
+  <button type="submit" class="btn btn-primary btn-raised">Buscar</button>
+</form>
+</div>
+<div class="col m1"></div>
+</div>
+
+
+
+<div class="row" *ngIf="activarConsulta==true " >
+<div class="col m10">
+ <br>
+ <h4 style="text-align: center"><span>Listado Reservas</span></h4>
+ <br>
+<table class="table table-bordered">
+  <thead>
+    <tr class="table-active">
+      <th scope="col">Aerolinea</th>
+      <th scope="col">Origen</th>
+      <th scope="col">Destino</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Hora</th>
+      <th scope="col">Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of listaReservaciones; let in = index">
+      <th>{{item.aerolinea}}</th>
+      <td>{{item.origen}}</td>
+      <td>{{item.destino}}</td>
+      <td>{{item.fecha}}</td>
+      <td>{{item.hora}}</td>
+      <td>{{item.valor |  currency}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
